@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MessageCraft AI – El mensaje perfecto, siempre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #0f0e17;
+        --bg: #f8f7f3;
+        --accent: #4f46e5;
+        --accent2: #7c3aed;
+        --muted: #6b6b7b;
+        --card: #ffffff;
+        --border: rgba(0, 0, 0, 0.08);
+        --pill-bg: rgba(79, 70, 229, 0.08);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 6vw;
+        background: rgba(248, 247, 243, 0.85);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 1.35rem;
+        color: var(--ink);
+      }
+      .nav-logo span {
+        color: var(--accent);
+      }
+      .nav-cta {
+        background: var(--ink);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        padding: 0.55rem 1.4rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: "DM Sans", sans-serif;
+        text-decoration: none;
+      }
+      .nav-cta:hover {
+        background: var(--accent);
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 9rem 6vw 5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .blob1 {
+        width: 520px;
+        height: 520px;
+        background: var(--accent);
+        top: -100px;
+        left: -120px;
+        animation: floatBlob 8s ease-in-out infinite;
+      }
+      .blob2 {
+        width: 400px;
+        height: 400px;
+        background: var(--accent2);
+        bottom: -80px;
+        right: -80px;
+        animation: floatBlob 10s ease-in-out infinite reverse;
+      }
+      @keyframes floatBlob {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(30px, 20px);
+        }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--pill-bg);
+        color: var(--accent);
+        border: 1px solid rgba(79, 70, 229, 0.2);
+        border-radius: 100px;
+        padding: 0.35rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        margin-bottom: 1.8rem;
+        animation: fadeUp 0.6s ease both;
+      }
+      .hero-badge::before {
+        content: "✦";
+      }
+
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(2.8rem, 7vw, 5.2rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        max-width: 780px;
+        animation: fadeUp 0.7s 0.1s ease both;
+      }
+      h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .hero-sub {
+        margin-top: 1.4rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: var(--muted);
+        max-width: 520px;
+        line-height: 1.65;
+        animation: fadeUp 0.7s 0.2s ease both;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2.4rem;
+        animation: fadeUp 0.7s 0.3s ease both;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--ink);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          background 0.2s;
+        font-family: "DM Sans", sans-serif;
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--ink);
+        border: 1.5px solid var(--border);
+        border-radius: 100px;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          transform 0.15s;
+        font-family: "DM Sans", sans-serif;
+        text-decoration: none;
+      }
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .store-icons {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .store-icons svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .hero-social {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+        animation: fadeUp 0.7s 0.4s ease both;
+      }
+      .hero-social strong {
+        color: var(--ink);
+      }
+
+      /* ─── PHONE MOCKUP ─── */
+      .phone-wrap {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        animation: fadeUp 0.9s 0.5s ease both;
+      }
+      .phone {
+        width: 220px;
+        background: #fff;
+        border-radius: 36px;
+        box-shadow:
+          0 40px 80px rgba(15, 14, 23, 0.12),
+          0 0 0 1px rgba(0, 0, 0, 0.06);
+        padding: 1.2rem 0.9rem 1.4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .phone.tilted {
+        transform: rotate(-4deg) translateY(16px);
+      }
+      .phone.tilted2 {
+        transform: rotate(3deg) translateY(8px);
+      }
+      .phone-notch {
+        width: 80px;
+        height: 22px;
+        background: #0f0e17;
+        border-radius: 100px;
+        margin: 0 auto 1rem;
+      }
+      .phone-screen {
+        font-size: 0.72rem;
+      }
+      .phone-title {
+        font-family: "Instrument Serif", serif;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0.7rem;
+      }
+      .phone-section {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .cat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+        margin-bottom: 0.8rem;
+      }
+      .cat-item {
+        background: #f0effa;
+        border-radius: 10px;
+        padding: 0.55rem 0.4rem;
+        text-align: center;
+        font-size: 0.6rem;
+        color: #333;
+      }
+      .cat-item .emoji {
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+      .result-card {
+        background: #f0effa;
+        border-radius: 12px;
+        padding: 0.7rem;
+        margin-bottom: 0.6rem;
+      }
+      .result-label {
+        font-size: 0.55rem;
+        font-weight: 600;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.3rem;
+      }
+      .result-text {
+        font-size: 0.65rem;
+        line-height: 1.45;
+        color: #333;
+      }
+      .phone-btn {
+        background: var(--ink);
+        color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        padding: 0.45rem;
+        font-size: 0.6rem;
+        font-weight: 600;
+        margin-top: 0.4rem;
+      }
+
+      /* ─── FEATURES ─── */
+      .section {
+        padding: 6rem 6vw;
+      }
+      .section-tag {
+        display: inline-block;
+        background: var(--pill-bg);
+        color: var(--accent);
+        border-radius: 100px;
+        padding: 0.3rem 0.9rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      h2 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        max-width: 600px;
+      }
+      h2 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .feature-card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 1.8rem;
+        border: 1px solid var(--border);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 50px rgba(15, 14, 23, 0.08);
+      }
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: var(--pill-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 1.1rem;
+      }
+      .feature-card h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .feature-card p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ─── HOW IT WORKS ─── */
+      .how-bg {
+        background: var(--ink);
+        color: #fff;
+      }
+      .how-bg .section-tag {
+        background: rgba(255, 255, 255, 0.1);
+        color: #a5b4fc;
+      }
+      .how-bg h2 {
+        color: #fff;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      .step {
+        position: relative;
+      }
+      .step-num {
+        font-family: "Instrument Serif", serif;
+        font-size: 4rem;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.08);
+        position: absolute;
+        top: -1rem;
+        left: -0.5rem;
+        pointer-events: none;
+      }
+      .step-content {
+        position: relative;
+        z-index: 1;
+        padding-top: 1.5rem;
+      }
+      .step-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+      .step h3 {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .step p {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+      .step-arrow {
+        color: rgba(255, 255, 255, 0.2);
+        font-size: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      /* ─── MESSAGES SHOWCASE ─── */
+      .messages-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.2rem;
+        margin-top: 3rem;
+      }
+      .msg-card {
+        background: var(--card);
+        border-radius: 18px;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        transition: transform 0.2s;
+      }
+      .msg-card:hover {
+        transform: translateY(-3px);
+      }
+      .msg-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--accent);
+        background: var(--pill-bg);
+        border-radius: 100px;
+        padding: 0.25rem 0.7rem;
+        margin-bottom: 0.9rem;
+      }
+      .msg-card p {
+        font-size: 0.92rem;
+        color: #333;
+        line-height: 1.65;
+        font-style: italic;
+      }
+      .msg-tone {
+        margin-top: 0.8rem;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      /* ─── CATEGORIES ─── */
+      .cats-wrap {
+        margin-top: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .cat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.18s;
+      }
+      .cat-pill:hover {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+
+      /* ─── TESTIMONIALS ─── */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .testi-card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 1.8rem;
+        border: 1px solid var(--border);
+      }
+      .stars {
+        color: #f59e0b;
+        font-size: 0.9rem;
+        margin-bottom: 0.9rem;
+      }
+      .testi-card p {
+        font-size: 0.9rem;
+        color: #444;
+        line-height: 1.65;
+      }
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 1.2rem;
+      }
+      .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .testi-name {
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+      .testi-role {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      /* ─── DOWNLOAD CTA ─── */
+      .download-section {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent2) 100%
+        );
+        border-radius: 32px;
+        margin: 0 6vw;
+        padding: 5rem 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .download-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      .download-section h2 {
+        color: #fff;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        max-width: 100%;
+        position: relative;
+      }
+      .download-section p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 0.8rem;
+        font-size: 1rem;
+        position: relative;
+      }
+      .download-btns {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2.4rem;
+        position: relative;
+      }
+      .store-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 16px;
+        padding: 0.85rem 1.6rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        font-family: "DM Sans", sans-serif;
+        text-decoration: none;
+        backdrop-filter: blur(8px);
+      }
+      .store-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+      }
+      .store-btn .store-label {
+        text-align: left;
+      }
+      .store-btn .store-small {
+        font-size: 0.7rem;
+        opacity: 0.75;
+        display: block;
+      }
+      .store-btn .store-name {
+        font-size: 1rem;
+        font-weight: 700;
+        display: block;
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        padding: 3rem 6vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        border-top: 1px solid var(--border);
+        margin-top: 5rem;
+      }
+      .footer-logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 1.2rem;
+      }
+      .footer-logo span {
+        color: var(--accent);
+      }
+      footer p {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-links a {
+        font-size: 0.82rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      /* ─── ANIMATIONS ─── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 640px) {
+        .hero {
+          padding-top: 7rem;
+        }
+        .download-section {
+          margin: 0 1rem;
+          padding: 3rem 1.5rem;
+        }
+        .phone.tilted,
+        .phone.tilted2 {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">Message<span>Craft</span> AI</div>
+      <a href="#download" class="nav-cta">Descargar gratis</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-blob blob1"></div>
+      <div class="hero-blob blob2"></div>
+
+      <div class="hero-badge">Disponible en iOS y Android</div>
+      <h1>El mensaje <em>perfecto</em>,<br />en segundos</h1>
+      <p class="hero-sub">
+        MessageCraft AI genera mensajes personalizados con IA para cada ocasión
+        — desde amor hasta negocios. Solo elige la categoría, el tono y listo.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.42.07 2.4.74 3.22.8 1.23-.26 2.41-.97 3.72-.84 1.57.19 2.75.84 3.52 2.07-3.19 1.98-2.64 6.26.54 7.5-.62 1.46-1.27 2.87-3 3.35zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"
+            />
+          </svg>
+          App Store
+        </a>
+        <a href="#download" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M1.724 1.724a1.04 1.04 0 00-.274.693v19.166c0 .27.1.514.274.693l.036.035 10.733-10.733v-.252L1.76 1.689l-.036.035zM15.894 15.839l-3.578-3.578v-.252l3.578-3.578.081.046 4.239 2.409c1.21.687 1.21 1.813 0 2.5l-4.239 2.409-.081.044zM2.182 22.637l10.134-10.134 2.599 2.599-11.561 6.571a1.19 1.19 0 01-1.172-.036zM2.182 1.363a1.19 1.19 0 011.172-.036l11.561 6.571-2.599 2.599L2.182 1.363z"
+            />
+          </svg>
+          Google Play
+        </a>
+      </div>
+
+      <p class="hero-social">
+        Más de <strong>5,000+</strong> mensajes generados esta semana 🔥
+      </p>
+
+      <!-- PHONE MOCKUPS -->
+      <div class="phone-wrap">
+        <div class="phone tilted">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-title">MessageCraft AI</div>
+            <div class="phone-section">Elige una categoría</div>
+            <div class="cat-grid">
+              <div class="cat-item">
+                <span class="emoji">🔥</span>Motivación
+              </div>
+              <div class="cat-item"><span class="emoji">💜</span>Amor</div>
+              <div class="cat-item"><span class="emoji">🤝</span>Amistad</div>
+              <div class="cat-item">
+                <span class="emoji">💼</span>Profesional
+              </div>
+            </div>
+            <div
+              style="
+                background: #f0f0f6;
+                border-radius: 8px;
+                padding: 0.5rem;
+                margin-bottom: 0.4rem;
+              "
+            >
+              <div
+                style="font-size: 0.55rem; color: #888; margin-bottom: 0.2rem"
+              >
+                Tono
+              </div>
+              <div style="font-size: 0.65rem; font-weight: 600">Informal ▾</div>
+            </div>
+            <div class="phone-btn">✦ Generar mensaje</div>
+          </div>
+        </div>
+
+        <div class="phone tilted2">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-title">MessageCraft AI</div>
+            <div
+              style="
+                background: #f0effa;
+                border-radius: 100px;
+                text-align: center;
+                padding: 0.3rem;
+                font-size: 0.6rem;
+                color: #4f46e5;
+                margin-bottom: 0.7rem;
+                font-weight: 600;
+              "
+            >
+              ✦ PROFESIONAL · CONCISO
+            </div>
+            <div class="result-card">
+              <div class="result-label">AI RESULT</div>
+              <div class="result-text">
+                Dear Team, I have reviewed the latest project milestones and I
+                am impressed by the progress made this week...
+              </div>
+            </div>
+            <div class="phone-btn" style="background: #4f46e5">
+              ⇪ Compartir mensaje
+            </div>
+            <div
+              style="
+                text-align: center;
+                font-size: 0.55rem;
+                color: #888;
+                margin-top: 0.4rem;
+              "
+            >
+              ↻ Generar otro
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section reveal" id="features">
+      <div class="section-tag">Por qué MessageCraft</div>
+      <h2>Todo lo que necesitas para comunicarte <em>mejor</em></h2>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">✨</div>
+          <h3>IA de última generación</h3>
+          <p>
+            Powered by modelos de IA avanzados que entienden contexto, tono y
+            relaciones para generar mensajes que suenan reales y auténticos.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎯</div>
+          <h3>8+ categorías y tonos</h3>
+          <p>
+            Amor, profesional, amistad, cumpleaños, motivación y más. Elige el
+            tono — formal, informal, poético, directo — y el mensaje se adapta.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">⚡</div>
+          <h3>En segundos, no minutos</h3>
+          <p>
+            Sin bloqueos creativos. En 3 pasos tienes un mensaje listo para
+            compartir. Cópialo, compártelo directo desde la app.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📖</div>
+          <h3>Historial de mensajes</h3>
+          <p>
+            Guarda y revisa todos tus mensajes generados. Busca por categoría,
+            fecha o destinatario para reutilizar o inspirarte.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🌐</div>
+          <h3>Multiidioma</h3>
+          <p>
+            Genera mensajes en español e inglés. La app entiende el idioma que
+            necesitas para cada relación.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📱</div>
+          <h3>iOS y Android</h3>
+          <p>
+            Disponible en ambas plataformas con experiencia nativa. Ligera,
+            rápida y sin fricción.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-bg reveal" id="how">
+      <div class="section-tag">Cómo funciona</div>
+      <h2>Tres pasos y tu mensaje <em>está listo</em></h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-icon">🗂</div>
+            <h3>Elige la categoría</h3>
+            <p>
+              ¿Es un mensaje de amor? ¿Un follow-up profesional? ¿Un cumpleaños?
+              Selecciona la categoría que mejor describe la ocasión.
+            </p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-icon">🎨</div>
+            <h3>Define el tono</h3>
+            <p>
+              Elige entre informal, formal, poético, directo, cariñoso, o
+              humorístico. Agrega el nombre del destinatario y contexto extra si
+              quieres.
+            </p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-icon">🚀</div>
+            <h3>Genera y comparte</h3>
+            <p>
+              La IA crea tu mensaje al instante. Cópialo o compártelo directo
+              desde la app a WhatsApp, iMessage, email y más.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLE MESSAGES -->
+    <section class="section reveal">
+      <div class="section-tag">Ejemplos reales</div>
+      <h2>Mensajes que <em>impactan</em></h2>
+      <div class="messages-showcase">
+        <div class="msg-card reveal">
+          <div class="msg-tag">💜 Amor · Heartfelt</div>
+          <p>
+            "Thinking of you today and just wanted to say how much I appreciate
+            having you in my life. You make every day brighter."
+          </p>
+          <div class="msg-tone">Para: Sarah · Tono: Cariñoso</div>
+        </div>
+        <div class="msg-card reveal">
+          <div class="msg-tag">💼 Profesional · Formal</div>
+          <p>
+            "Dear Team, I have reviewed the latest milestones and I am impressed
+            by the progress. Let's ensure we maintain this momentum as we
+            approach delivery."
+          </p>
+          <div class="msg-tone">Para: Equipo · Tono: Formal</div>
+        </div>
+        <div class="msg-card reveal">
+          <div class="msg-tag">🔥 Motivación · Informal</div>
+          <p>
+            "¡Ánimo Pipe! Sube esa app sin miedo, sé que la vas a romper y será
+            un éxito total. Confía en tu talento. ¡A por ello! 🔥🚀"
+          </p>
+          <div class="msg-tone">Para: Pipe · Tono: Informal</div>
+        </div>
+        <div class="msg-card reveal">
+          <div class="msg-tag">😔 Disculpa · Sincero</div>
+          <p>
+            "I'm so sorry for being late to our lunch today. Traffic was
+            unexpectedly heavy and I know your time is valuable. It won't happen
+            again."
+          </p>
+          <div class="msg-tone">Para: Ana · Tono: Sincero</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section reveal" style="padding-top: 0">
+      <div class="section-tag">Categorías disponibles</div>
+      <h2>Para cada <em>momento</em></h2>
+      <div class="cats-wrap reveal">
+        <div class="cat-pill">🔥 Motivación</div>
+        <div class="cat-pill">💜 Amor & Romance</div>
+        <div class="cat-pill">🤝 Amistad</div>
+        <div class="cat-pill">💼 Profesional</div>
+        <div class="cat-pill">🎂 Cumpleaños</div>
+        <div class="cat-pill">🕊 Condolencias</div>
+        <div class="cat-pill">🙏 Gratitud</div>
+        <div class="cat-pill">✨ Especial</div>
+        <div class="cat-pill">😔 Disculpa</div>
+        <div class="cat-pill">🎉 Celebración</div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS 
+    <section
+      class="section reveal"
+      style="background: #f0effa; border-radius: 32px; margin: 0 4vw"
+    >
+      <div class="section-tag">Lo que dicen</div>
+      <h2>Personas reales, mensajes <em>reales</em></h2>
+      <div class="testimonials-grid">
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            "No soy bueno con las palabras y esta app me salvó más de una vez.
+            Mandé un mensaje a mi jefe que quedó impecable."
+          </p>
+          <div class="testi-author">
+            <div class="avatar">MR</div>
+            <div>
+              <div class="testi-name">Martín R.</div>
+              <div class="testi-role">Ingeniero, Santiago</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            "La uso para los mensajes de cumpleaños del trabajo. Cada uno queda
+            personalizado y nunca se repiten. Mis compañeros piensan que soy
+            súper creativo 😂"
+          </p>
+          <div class="testi-author">
+            <div class="avatar">CV</div>
+            <div>
+              <div class="testi-name">Camila V.</div>
+              <div class="testi-role">Diseñadora, Bogotá</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            "Para mensajes en inglés es increíble. Me ayuda a sonar natural y
+            profesional cuando escribo a clientes extranjeros."
+          </p>
+          <div class="testi-author">
+            <div class="avatar">JP</div>
+            <div>
+              <div class="testi-name">Jorge P.</div>
+              <div class="testi-role">Emprendedor, CDMX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    -->
+
+    <!-- DOWNLOAD CTA -->
+    <section class="section" id="download">
+      <div class="download-section reveal">
+        <h2>Descarga gratis y empieza hoy</h2>
+        <p>
+          Disponible en App Store y Google Play. Sin suscripción para empezar.
+        </p>
+        <div class="download-btns">
+          <a href="#" class="store-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.42.07 2.4.74 3.22.8 1.23-.26 2.41-.97 3.72-.84 1.57.19 2.75.84 3.52 2.07-3.19 1.98-2.64 6.26.54 7.5-.62 1.46-1.27 2.87-3 3.35zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"
+              />
+            </svg>
+            <div class="store-label">
+              <span class="store-small">Descargar en el</span>
+              <span class="store-name">App Store</span>
+            </div>
+          </a>
+          <a href="#" class="store-btn">
+            <svg width="28" height="28" viewBox="0 0 512 512" fill="white">
+              <path
+                d="M451.908,224.327L91.42,6.615C84.152,2.226,76.962,0,70.05,0C55.38,0,40.576,10.917,40.576,35.305V476.8c0,24.314,14.712,35.198,29.292,35.2c0.002,0,0.002,0,0.003,0c6.945,0,14.172-2.266,21.479-6.734l360.726-220.618c12.329-7.54,19.381-18.553,19.348-30.215C471.391,242.771,464.279,231.797,451.908,224.327z M345.959,184.753l-51.028,55.149L110.965,42.832L345.959,184.753z M64.671,488.759c-2.794-3.224-3.197-8.967-3.197-11.959V35.305c0-3.534,0.494-8.627,2.938-11.716L280.7,255.281L64.671,488.759z M112.507,467.83l182.492-197.232l50.879,54.503L112.507,467.83z M441.173,266.82l-77.096,47.152l-54.848-58.754l54.993-59.434l76.882,46.432c5.976,3.609,9.41,8.083,9.422,12.275C450.538,258.683,447.129,263.176,441.173,266.82z"
+              />
+            </svg>
+            <div class="store-label">
+              <span class="store-small">Disponible en</span>
+              <span class="store-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">Message<span>Craft</span> AI</div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Contacto</a>
+      </div>
+      <p>© 2026 MessageCraft AI. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
